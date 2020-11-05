@@ -6,6 +6,10 @@
 ifneq ($(KERNELRELEASE),)
 # Called from inline kernel build
 # DKMS_DEFINE
+include $(srctree)/techpack/exfat/config/exfat.conf
+
+LINUXINCLUDE    += -include $(srctree)/techpack/exfat/config/exfat.h
+
 obj-$(CONFIG_EXFAT_FS) += exfat.o
 
 exfat-objs	:= inode.o namei.o dir.o super.o fatent.o cache.o nls.o misc.o \
